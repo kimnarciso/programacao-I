@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Média das notas do aluno [MÉDIA PONDERADA]
+    Peça para o aluno informar as notas que obteve no PRIMEIRO TRIMESTRE e calcule a média do aluno no primeiro trimestre. Considere que a média é ponderada, e o peso das notas será 2 (dois), 3 (três) e 5 (cinco), respectivamente. Ao final do programa apresente a média trimestral que o aluno obteve.
+    */
+    //ENTRADA
+    const primeira = Number (prompt(`qual foi a sua primeira nota?`));
+    const segunda = Number (prompt(`qual foi a sua segunda nota?`));
+    const terceira = Number (prompt(`qual foi a sua terceira nota?`));
+    //PROCESSAMENTO
+    const contaPrimeira = primeira * 2;
+    const contaSegunda = segunda * 3;
+    const contaTerceira = terceira * 5;
+    const calculo = contaPrimeira + contaSegunda + contaTerceira;
+    const calculoFinal = calculo / 10;
+    
+    //SAÍDA
+    document.write(`Sua média no final do trimestre é ${calculoFinal.toFixed(2)}`);
+</script>

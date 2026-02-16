@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Peso de uma pessoa
+    Peça para o usuário informar o seu peso. Calcule e apresente, ao final do programa, duas informações:
+
+    Novo peso, caso a pessoa emagreça 15%
+    Novo peso, caso a pessoa engorde 20%
+    */
+    //ENTRADA
+    const pesoAtual = Number (prompt(`Qual o seu peso?`));
+    
+    //PROCESSAMENTO
+    const decimal = 15 / 100;
+    const peso = pesoAtual * decimal;
+    const pesoEmagrecer = pesoAtual - peso;
+    const deciamalEngorda = 20 / 100;
+    const engordarPeso = pesoAtual * deciamalEngorda;
+    const pesoEngordar = pesoAtual + engordarPeso;
+    
+    //SAÍDA
+    document.write (`Seu peso caso emagreça 15% será de ${pesoEmagrecer}, caso engorde 20% será de ${pesoEngordar}.`);
+</script>

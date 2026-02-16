@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Salário líquido [2]
+    Peça para o usuário informar o seu salário-base. Calcule e apresente o salário líquido ao final do programa, considerando que o funcionário recebe gratificação de R% 200,00 (livre de imposto) e lhe é descontado 10% sobre o salário-base.
+    */
+    //ENTRADA
+    const salarioBase = Number (prompt(`Qual o seu salário-base?`));
+    
+    //PROCESSAMENTO
+    const porcentagem = 10 / 100;
+    const desconto = salarioBase * porcentagem;
+    const salario = salarioBase - desconto;
+    const  salarioLiquido = salario + 200;
+    
+    //SAÍDA
+    document.write (`o seu salário líquido é R$${salarioLiquido.toFixed(2)}.`)
+</script>
