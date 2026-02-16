@@ -1,0 +1,33 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: DESTINO TURÍSTICO
+    Peça para o usuário informar o preço do transporte aéreo para dois destinos de viagem (São Paulo, Rio de Janeiro).
+    
+    Peça também para informar o preço do hotel para os dois destinos (São Paulo, Rio de Janeiro) e quantos dias pretende ficar no destino.
+    
+    Calcule o custo final para cada um e apresente a melhor decisão, considerando que o destino pretendido será o com custo final mais baixo. 
+    
+    Apresente o destino final e o custo final da viagem para o destino.
+    */
+
+    //ENTRADA
+    let aerioS = Number (prompt(`Informe o preço do transporte aéreo para São Paulo:`));
+    let aerioR = Number (prompt(`Informe o preço do transporte aéreo para o Rio de Janeiro:`));
+
+    let hotelS = Number (prompt(`Informe o preço da diária do hotel em São Paulo:`));
+    let hotelR = Number (prompt(`Informe o preço da diária do hotel no Rio de Janeiro:`));
+
+    let dias = Number (prompt(`Informe quantos dias pretende ficar em seu destino:`))
+    //PROCESSAMENTO
+    let custoS = dias * hotelS + aerioS;
+    let custoR = dias * hotelR + aerioR;
+    //SAÍDA
+    if (custoS > custoR){
+        alert (`O destino final será o Rio de Janeiro e o custo final de viajem será R$${custoR.toFixed(2)}.`);
+    } else if (custoR > custoS){
+        alert (`O destino final será São Paulo e o custo final de viajem será R$${custoS.toFixed(2)}.`);
+    } else {
+        alert (`Ambos os destinos terão o mesmo valor: R$${custoR.toFixed(2)}`)
+    }
+</script>

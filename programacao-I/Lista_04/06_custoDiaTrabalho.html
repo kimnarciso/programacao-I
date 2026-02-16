@@ -1,0 +1,51 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: CUSTO DO DIA DE TRABALHO
+    Peça para o programa perguntar ao usuário quantas viagens foram realizadas por dia e também qual o cargo que ocupa.
+    
+    Considere que o valor da diária é de R$ 100,00 (100).
+    
+    - Se o usuário ocupar o cargo de "Motorista" e realizou até 10 viagens, haverá um adicional de 20% (20/100).
+    - Se o usuário ocupar o cargo de "Motorista" e realizou mais de 10 viagens, haverá um adicional de 35% (35/100).
+    - Contudo, se o cargo do usuário for "Cobrador" e realizou até 10 viagens, não haverá adicional.
+    - Se o usuário ocupar o cargo de "Cobrador" e realizou mais de 10 viagens, haverá um adicional de 10% (10/100).
+    
+    Apresente em tela o cargo do usuário e também o valor final recebido pelas viagens realizadas.
+    */
+
+    //ENTRADA
+    let viagens = Number (prompt(`Quantas viagens foram realizadas por dia?;`));
+    let cargo = prompt (`Informe o cargo que ocupa (M-motoista e C-cobrador):`).toUpperCase().trim();
+    while (cargo !== "M" && cargo !== "C") {
+        alert(`Valor inválido! Responda com M ou C.`);
+        cargo = prompt(`Informe o cargo que ocupa (M-motoista e C-cobrador):`).toUpperCase().trim();
+    }
+
+    //PROCESSAMENTO
+    let viagemMotorista = ((100 * 20) / 100);
+    let somaViagemMotorista = 100 + viagemMotorista;
+    let viagemMotorista10  = ((100 * 35) / 100);
+    let somaViagemMotorista10 = 100 + viagemMotorista10;
+
+    let viagemCobrador =  ((100 * 10) / 100);
+    let somaViagemCobrador = 100 + viagemCobrador;
+    //SAÍDA
+    if (cargo === "M"){
+        if (viagens <= 10){
+            alert (`O cargo é: Motorista e o valor recebido pelas viagens será de R$${somaViagemMotorista.toFixed(2)}.`)
+        } else {
+            alert (`O cargo é: Motorista e o valor recebido pelas viagens será de R$${somaViagemMotorista10.toFixed(2)}.`)
+        }
+    }
+
+    if (cargo === "C"){
+        if (viagens <= 10){
+            alert (`O cargo é: Cobrador e o valor recebido pelas viagens será de R$100.00.`)
+        } else {
+            alert (`O cargo é: Cobrador e o valor recebido pelas viagens será de R$${somaViagemCobrador.toFixed(2)}.`)
+ 
+        }
+
+    } 
+</script>
