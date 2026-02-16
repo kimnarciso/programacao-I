@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Aumento de Preço
+    //Recebe o preço do produto e calcula o aumento do preço, baseado no seguinte critério:
+        //- até 280(inclusive): aumento de 20 %
+        //- até 700(inclusive): aumento de 15 %
+        //- até 1500(inclusive): aumento de 10 %
+        //- acima de 1500: aumento de 5 %
+    
+    //Entrada
+     let valor = Number (prompt(`Informe o preço do produto:`));
+    //Processamento
+    let valor20 = valor * 0.20;
+    let soma20 = valor + valor20;
+
+    let valor15 = valor * 0.15;
+    let soma15 = valor + valor15;
+
+    let valor10 = valor * 0.10;
+    let soma10 = valor + valor10;
+
+    let valor5 = valor * 0.05;
+    let soma5 = valor + valor5;
+
+    //Saída
+    (valor <= 280)?
+    alert (`O aumento do preço foi R$${valor20.toFixed(2)} e o valor final será R$${soma20.toFixed(2)}.`):
+    (valor <= 700)?
+    alert (`O aumento do preço foi R$${valor15.toFixed(2)} e o valor final será R$${soma15.toFixed(2)}.`):
+    (valor <= 1500)?
+    alert (`O aumento do preço foi R$${valor10.toFixed(2)} e o valor final será R$${soma10.toFixed(2)}.`):
+    alert (`O aumento do preço foi R$${valor5.toFixed(2)} e o valor final será R$${soma5.toFixed(2)}.`);
+
+
+</script>

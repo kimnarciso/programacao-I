@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Meio de transporte mais barato
+    // Faça um script que peça para o usuário informar o preço do litro do combustível e a quantidade de litros utilizados para se deslocar para o trabalho diariamente.
+    // Peça também ao programa para o usuário informar o preço do transporte público que deverá pagar para se deslocar ao trabalho diariamente.
+    // Verifique qual é o meio de transporte mais barato e apresente em tela, especificando quanto custará para ir e voltar do trabalho diariamente.
+
+    //Entrada
+    let combustivel = Number(prompt(`Informe o preço do litro do combustível:`));
+    let litrosUtilizados = Number(prompt(`Informe a quantidade de litros utilizados para se deslocar para o trabalho diariamente:`));
+
+    let passe = Number(prompt(`Informe o valor do transporte público:`));
+    //Processamento
+    let precoCombustivel = combustivel * litrosUtilizados;
+    let diariaTransportePessoal = precoCombustivel * 2;
+    let precoPasse = passe * 2;
+    //Saída
+    (diariaTransportePessoal > precoPasse) ?
+        alert(`O meio de transporte mais barato é o transporte publico que custará R$${passe.toFixed(2)} e o valor diário será ${precoPasse.toFixed(2)}.`) :
+        (diariaTransportePessoal == precoPasse) ?
+            alert(`Os dois transportes possuem o mesmo valor. O valor do transporte público custará R$${passe.toFixed(2)} e o seu valor diário será R$${precoPasse.toFixed(2)}. O valor do transporte pessoal será R$${precoCombustivel.toFixed(2)} e o seu valor diário será R$${diariaTransportePessoal.toFixed(2)}.`):
+            alert (`O transporte pessoal é o meio de transporte mais barato e custará R$${precoCombustivel.toFixed(2)} e o seu valor diário será R$${diariaTransportePessoal.toFixed(2)}.`);
+
+</script>
