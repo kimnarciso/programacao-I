@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: ESTAÇÃO DO ANO
+    Faça um script que pergunte para a pessoa em qual hemisfério ela está e qual o mês atual.
+    De acordo com as respostas, informe qual a estação do ano correspondente.
+    */
+
+    //ENTRADA
+    let mes = prompt(`Informe o mês atual?`).toUpperCase().trim();
+    while (mes !== "JANEIRO" && mes !== "FEVEREIRO" && mes !== "MARÇO" && mes !== "ABRIL" && mes !== "MAIO" && mes !== "JUNHO" && mes !== "JULHO" && mes !== "AGOSTO" && mes !== "SETEMBRO" && mes !== "OUTUBRO" && mes !== "NOVEMBRO" && mes !== "DEZEMBRO"){
+        alert (`Insira um mês válido!`);
+        mes = prompt(`Informe o mês atual?`).toUpperCase().trim();
+    }
+    let hemisferio = prompt(`Informe o hemisfério em que você está (N-norte ou S-sul)?`).toUpperCase().trim();
+    while ( hemisferio !== "N" && hemisferio !== "S"){
+        alert (`Insira um hemisfério válido. Somente Norte ou Sul.`);
+        hemisferio = prompt(`Informe o hemisfério em que você está (N-norte ou S-sul)?`).toUpperCase().trim();
+    }
+    
+    //PROCESSAMENTO
+    switch (hemisferio){
+        case "S":
+    switch (mes){
+        case "JANEIRO":
+        case "FEVEREIRO":
+        case "MARÇO":
+            alert (`É verão!`);
+            break;
+        case "ABRIL":
+        case "MAIO":
+        case "JUNHO":
+            alert (`É outono!`);
+            break;
+        case "JULHO":
+        case "AGOSTO":
+        case "SETEMBRO":
+            alert (`É inverno!`);
+            break;
+        case "OUTUBRO":
+        case "NOVEMBRO":
+        case "DEZEMBRO":
+            alert (`É primavera!`);
+            break;
+    }
+    break;
+        case "N":
+    switch (mes){
+        case "JANEIRO":
+        case "FEVEREIRO":
+        case "MARÇO":
+            alert (`É inverno!`);
+            break;
+        case "ABRIL":
+        case "MAIO":
+        case "JUNHO":
+            alert (`É primavera!`);
+            break;
+        case "JULHO":
+        case "AGOSTO":
+        case "SETEMBRO":
+            alert (`É verão!`);
+            break;
+        case "OUTUBRO":
+        case "NOVEMBRO":
+        case "DEZEMBRO":
+            alert (`É outono!`);
+            break;
+    }
+    break;
+}
+    //SAÍDA
+
+</script>

@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<script>
+/* Pergunte o curso pretendido de um estudante:
+(A) Agrimensura
+(I) Informática
+(Q) Química
+(P) Pedagogia
+*/
+
+let curso = prompt (`Informe o curso pretendido: (A)grimensura, (I)formática, (Q)uímica ou (P)edagogia.`).toUpperCase().trim();
+
+switch (curso){
+    case "A":
+        alert (`Agrimensura`);
+        break;
+    case "I":
+        alert (`Informática`);
+        break;
+    case "Q":
+        alert (`Química`);
+        break;
+    case "P":
+        alert (`Pedagogia`);
+        break;
+    default:
+        alert (`Informe o curso certo!`);
+        break;
+}
+
+
+</script>

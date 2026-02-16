@@ -1,0 +1,105 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: CÁLCULO ENTRE DOIS NÚMEROS
+    Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+    - par ou ímpar;
+    - positivo ou negativo;
+    - inteiro ou decimal.
+    */
+    //ENTRADA
+    let numero1 = Number (prompt(`Informe seu primeiro número:`));
+    while (isNaN(numero1)){
+        alert (`Informe um número!`);
+        numero1 = Number (prompt(`Informe seu primeiro número:`));
+    }
+    let numero2 = Number (prompt(`Informe seu segundo número:`));
+    while (isNaN (numero2)){
+        alert (`Informe um número!`);
+        numero2 = Number (prompt(`Informe seu segundo número:`));
+    }
+    let operacao = prompt (`Informe a operação (A-adição, S-subtração, D-divisão ou M-multiplicação):`).toUpperCase().trim();
+    while ( operacao !== "A" && operacao !== "S" && operacao !== "D" && operacao !== "M"){
+        alert (`Operação inválida! Responda com A, S, D ou M.`);
+        operacao = prompt (`Informe a operação (A-adição, S-subtração, D-divisão ou M-multiplicação):`).toUpperCase().trim();
+    }
+    //PROCESSAMENTO
+    let resultado;
+    let mensagem = ``; 
+    switch (operacao){
+        case "D":
+            while (numero2 === 0) {
+                alert (`Erro: divisão por zero!`);
+                numero2 = Number (prompt(`Informe um número diferente de zero!`));
+                while (isNaN (numero2)){
+                    alert (`Informe um número!`);
+                    numero2 = Number (prompt(`Informe seu segundo número:`));
+                }
+            }
+            break;
+    }  
+    //SAÍDA
+   switch (operacao){
+    case "A":
+        resultado = numero1 + numero2;
+        break;
+    case "S":
+        resultado = numero1 - numero2;
+        break;
+    case "D":
+        resultado = numero1 / numero2;
+        break;
+    case "M":
+        resultado = numero1 * numero2;
+        break;
+   }
+   switch (resultado !== undefined) {
+    case true:
+        switch (Number.isInteger(resultado)){
+            case true:
+            mensagem = `O resultado é ${resultado}. `;
+            break;
+            default:
+            mensagem = `O resultado é ${resultado.toFixed(2)}. `;
+            break;
+        }
+   switch (Number.isInteger(resultado)){
+    case true:
+        switch (resultado % 2){
+        case 0:
+        mensagem = mensagem + `Ele é par, `;
+        break;
+    default:
+        mensagem = mensagem + `Ele é ímpar, `;
+        break;
+        }
+        break;
+    default:
+        mensagem = mensagem + `Números decimais não são nem pares nem ímpares, `
+        break;
+   }
+   switch (true){
+    case (resultado > 0):
+        mensagem = mensagem + `ele é positivo e `;
+        break;
+    case (resultado < 0) :
+        mensagem = mensagem + `ele é negativo e `;
+        break;
+    default:
+        mensagem = mensagem + `ele é neutro (zero) e `;
+        break;
+    }
+    switch (Number.isInteger(resultado)){
+        case true:
+            mensagem = mensagem + `é inteiro.`;
+            break;
+        default:
+            mensagem = mensagem + `é decimal.`;
+            break;
+    }
+    break;
+}
+  if (mensagem.trim() !== ""){
+    alert (mensagem);    
+}
+</script>
