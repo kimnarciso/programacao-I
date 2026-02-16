@@ -1,0 +1,82 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que receba o sexo e a idade de 10 pessoas.
+    Calcule e apresente:
+    - A média das idades das 10 pessoas
+    - A idade média das mulheres
+    - A idade média dos homens
+    */
+
+    //ENTRADA
+    let idades = ""
+    let sexo = ""
+    let mediaMulher = 0
+    let mediaHomem = 0
+    let media = 0
+    let mulheres = 0
+    let homens = 0
+    //PROCESSAMENTO
+    for (let i = 0; i < 10; i++) {
+        sexo = prompt (`Informe o gênero da ${i+1}ª pessoa:`).trim().toLowerCase()
+        while (sexo !== "f" && sexo !== "m") {
+            alert (`Informe somente f ou m!`)
+            sexo = prompt (`Informe o seu gênero:`).trim().toLowerCase()
+        }
+        idades = Number (prompt(`Informe a idade da ${i+1}ª pessoa:`))
+        while (isNaN(idades) || idades < 0 || idades % 1 != 0) {
+            if (isNaN(idades)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (idades < 0) {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        idades = Number (prompt(`Informe a idade da ${i+1}ª pessoa:`))
+        }
+        media = media + idades
+
+        if (sexo == "f") {
+            mediaMulher = mediaMulher + idades
+            mulheres++
+        } else {
+            mediaHomem = mediaHomem + idades
+            homens++
+        }
+    }
+    let mediaFinal = media / 10
+    let mediaMulherFinal = 0
+    let mediaHomemFinal = 0
+    if (mediaMulher > 0){
+        mediaMulherFinal = mediaMulher / mulheres
+    }
+    if (mediaHomem > 0) {
+        let mediaHomemFinal = mediaHomem / homens
+    }
+    
+    //SAÍDA
+    if (mediaHomemFinal > 0 && mediaMulherFinal > 0) {
+        alert(`As médias respectivamente são:
+
+- A média das idades das 10 pessoas: ${mediaFinal.toFixed(1)} anos
+- A idade média das mulheres: ${mediaMulherFinal.toFixed(1)} anos
+- A idade média dos homens: ${mediaHomemFinal.toFixed(1)} anos
+    `)
+    } else if (mediaHomemFinal > 0 && mediaMulherFinal == 0) {
+        alert(`As médias respectivamente são:
+
+- A média das idades das 10 pessoas: ${mediaFinal.toFixed(1)} anos
+- A idade média das mulheres: Não há idade cadastrada para as mulheres.
+- A idade média dos homens: ${mediaHomemFinal.toFixed(1)} anos
+    `)
+    } else if (mediaMulherFinal > 0 && mediaHomemFinal == 0) {
+        alert(`As médias respectivamente são:
+
+- A média das idades das 10 pessoas: ${mediaFinal.toFixed(1)} anos
+- A idade média das mulheres: ${mediaMulherFinal.toFixed(1)} anos
+- A idade média dos homens: Não há idade cadastrada para os homens.
+    `)
+    }
+
+</script>

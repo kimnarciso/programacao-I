@@ -1,0 +1,38 @@
+<script>
+    /*
+    PROBLEMA: CONTAR VOGAIS
+    Desenvolva um programa que contenha uma função que receba uma string e retorne a quantidade de vogais que a string possui.
+    Por exemplo, se o usuário informar a palavra "Araquari", o programa deverá retornar o valor 5, pois a palavra possui 5 vogais.
+    *Para simplificar, não considere vogais acentuadas.
+    */
+
+    //ENTRADA
+
+
+    //PROCESSAMENTO
+    function vogal() {
+        let palavra = prompt(`Informe a palavra que deseja contar as vogais:`).trim().toLowerCase()
+        while (!isNaN(palavra)) {
+            alert(`Informe uma palavra!`)
+            palavra = prompt(`Informe a palavra que deseja contar as vogais:`).trim().toLowerCase()
+        }
+        let vogais = ["a", "e", "i", "o", "u"];
+        let contador = 0;
+
+        // Percorre cada letra da palavra
+        for (let letra of palavra) {
+            if (vogais.includes(letra)) {
+                contador++;
+            }
+        }
+
+        alert(`A palavra "${palavra}" possui ${contador} vogais.`);
+    }
+    //SAÍDA
+    vogal();
+
+    /* TERMINAR */
+
+
+
+</script>

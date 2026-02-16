@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Fibonacci
+    /*
+    Pergunte ao usuário quantos números da sequência de Fibonacci deseja obter, usando a estrutura de repetição while.
+    */
+
+    //ENTRADA
+
+    let numero = Number(prompt("Quantos números da sequência dejesa obter?"))
+    while (isNaN(numero) || numero % 1 != 0 || numero < 0 ) {
+        if (isNaN(numero)) {
+            alert(`Número inválido! Digite somente números!`)
+        } else if (numero % 1 != 0) {
+            alert(`Número inválido! Digite somente números inteiros!`)
+        } else if (numero < 0) {
+            alert(`Número inválido! Digite um número maior que 0!`)
+        } 
+    }
+
+let a = 0
+let b = 1
+let contador = 3
+
+    //PROCESSAMENTO
+    while (contador <= numero) {
+    let c = a + b
+
+    a = b
+    b = c
+
+    contador++
+}
+
+    //SAÍDA
+    if (numero == 1) {
+        alert(`O 1º termo da sequência de Fibonacci é: 0`)
+    } else if (numero == 2) {
+        alert(`O 2º termo da sequência de Fibonacci é: 1`)
+    } else {
+        alert(`O ${numero}º termo da sequência de Fibonacci é: ${b}`)
+    }
+</script>

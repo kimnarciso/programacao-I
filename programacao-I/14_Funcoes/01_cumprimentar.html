@@ -1,0 +1,24 @@
+<script>
+    /*
+    PROBLEMA: CUMPRIMENTAR
+    Desenvolva um programa que contenha uma função que apresente um cumprimento para o usuário, mostrando a seguinte mensagem:
+    "Bom dia, Visitante!"
+    *Substitua a palavra Visitante pelo nome do usuário, que será fornecido pelo próprio usuário.
+    */
+
+    //ENTRADA
+    
+
+    //PROCESSAMENTO
+    function nomeUsuario () {
+        let nome = prompt (`Informe seu nome:`).trim()
+    while (!isNaN(nome)) {
+        alert (`Informe um nome válido!`)
+        nome = prompt (`Informe seu nome:`).trim()
+    }
+    let nomeMaior = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
+    alert ("Bom dia, " + nomeMaior)
+    }
+    //SAÍDA
+    nomeUsuario()
+</script>

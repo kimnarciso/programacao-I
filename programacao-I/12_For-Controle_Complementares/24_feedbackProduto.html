@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Considere que um novo produto foi lançado no mercado. Para saber se atendeu as expectativas dos consumidores, a empresa decidiu entrevistar 10 pessoas.
+    Peça para que seja informado o gênero da pessoa (M-Masculino ou F-Feminino). Também peça para responder se o produto atendeu as suas expectativas (S-Sim ou N-Não).
+    Ao final, apresente os seguintes dados:
+    - Número de pessoas que respondeu sim
+    - Número de pessoas que respondeu não
+    - Número de mulheres que respondeu sim
+    - Percentual de homens que responderam não entre todos os homens analisados
+    */
+
+    //ENTRADA
+    let genero = ""
+    let resposta = ""
+    let respostasSim = 0
+    let respostasNao = 0 
+    let quantidadeMulher = 0
+    let homens = 0
+    let quantidadeHomens = 0
+
+    //PROCESSAMENTO
+    for (let i = 0; i < 10; i++) {
+        genero = prompt(`Informe o gênero da ${i+1}ª pessoa (M-Masculino ou F-Feminino):`).trim().toUpperCase()
+        while (genero !== "M" && genero !== "F") {
+            alert (`Informe somente M ou F!`)
+            genero = prompt(`Informe o gênero da ${i+1}ª pessoa (M-Masculino ou F-Feminino):`).trim().toUpperCase()
+        }
+
+        resposta = prompt(`O produto atendeu suas expectativas? (S-Sim ou N-Não):`).trim().toUpperCase()
+        while (resposta !== "S" && resposta !== "N") {
+            alert (`Informe somente S ou N!`)
+            resposta = prompt(`O produto atendeu suas expectativas? (S-Sim ou N-Não):`).trim().toUpperCase()
+        }
+
+        if (resposta === "S") {
+            respostasSim++
+            if (genero === "F") {
+                quantidadeMulher++
+            }
+        } else {
+            respostasNao++
+            if (genero === "M") {
+                homens++
+            }
+        }
+
+        if (genero === "M") {
+            quantidadeHomens++
+        }
+    }
+    
+    let percentual = (homens / quantidadeHomens) * 100
+    //SAÍDA
+    alert (`Os resultados são:
+
+- Número de pessoas que respondeu sim é: ${respostasSim}
+- Número de pessoas que respondeu não é: ${respostasNao}
+- Número de mulheres que respondeu sim é: ${quantidadeMulher}
+- Percentual de homens que responderam não entre todos os homens analisados é: ${percentual.toFixed(0)}%
+`)   
+
+
+</script>

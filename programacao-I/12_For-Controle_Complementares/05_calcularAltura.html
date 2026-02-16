@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que pergunte ao usuário a quantidade de pessoas que terão sua medida informada.
+    Após, calcule e apresente os seguintes dados:
+    - Menor altura 
+    - Maior altura
+    */
+
+    //ENTRADA
+    let quantidade = Number(prompt(`Informe a quantidade de pessoas que terão sua medida informada:`))
+    while (isNaN(quantidade) || quantidade < 2 || quantidade % 1 != 0) {
+        if (isNaN(quantidade)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (quantidade < 2) {
+            alert (`Valor inválido! Você deve informar um número maior ou igual a 2.`);
+        } else {
+            alert (`Valor inválido! Você deve informar um número inteiro.`);  
+        }
+        quantidade = Number(prompt(`Informe a quantidade de pessoas que terão sua medida informada:`))
+    }
+    
+    let listaAltura = []
+    let altura = ""
+    //PROCESSAMENTO
+    for (let i = 0; i < quantidade; i++) {
+        altura = Number(prompt(`Informe a altura em cm:`))
+        while (isNaN(altura) || altura < 0 || altura % 1 != 0) {
+            if (isNaN(altura)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (altura < 0) {
+            alert (`Valor inválido! Você deve informar um número maior que 0.`);
+        }
+        altura = Number(prompt(`Informe a altura em cm:`))
+        }
+        let metros = altura / 100
+        listaAltura.push(metros)
+    }
+    listaAltura.sort((a,b) => a - b)
+    let menorAltura = listaAltura.shift()
+    let maiorAltura = listaAltura.pop()
+    //SAÍDA
+    if (listaAltura.length > 0) {
+        alert (`A maior altura é: ${maiorAltura.toFixed(2)}.
+A menor altura é: ${menorAltura.toFixed(2)}
+As demais alturas são: ${listaAltura.map(a => a.toFixed(2)).join(" - ")}.`)
+    } else {
+        alert (`A maior altura é: ${maiorAltura.toFixed(2)}.
+A menor altura é: ${menorAltura.toFixed(2)}.`)
+    }
+
+</script>

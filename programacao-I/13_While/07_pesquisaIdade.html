@@ -1,0 +1,107 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: PESQUISA DE IDADE
+    Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário. Faça um programa que calcule e mostre:
+
+    a) A média dos salários do grupo;
+    b) A maior e a menor idade do grupo;
+    c) A quantidade de mulheres na região;
+    d) A idade e o sexo da pessoa que possui o menor salário;
+
+    Finalize a entrada de dados ao ser digitada uma idade negativa.
+    */
+
+    //ENTRADA
+    /*
+    PROBLEMA: PESQUISA DE IDADE
+    */
+
+    let somaSalario = 0
+    let listaSalario = []
+    let listaIdade = []
+    let listaMulheres = 0
+    let pessoas = 0
+
+    let menorSalario = 0
+    let idadeMenorSalario = 0
+    let sexoMenorSalario = ""
+    let primeiro = true
+
+    let idade = 0
+    //PROCESSAMENTO
+    while (idade >= 0) {
+
+        //----------IDADE----------//
+        idade = Number(prompt(`Informe a idade:`))
+
+        while (isNaN(idade) || idade % 1 != 0) {
+            if (isNaN(idade)) {
+                alert(`Idade inválida! Digite somente números!`)
+            } else {
+                alert(`Idade inválida! Digite somente números inteiros!`)
+            }
+            idade = Number(prompt(`Informe a idade:`))
+        }
+
+        if (idade < 0) break
+
+        listaIdade.push(idade)
+
+        //----------SEXO----------//
+        let sexo = prompt(`Informe o sexo M para Masculino e F para Feminino:`).trim().toUpperCase()
+
+        while (sexo != "M" && sexo != "F") {
+            alert(`Gênero inválido! Digite M ou F!`)
+            sexo = prompt(`Informe o sexo M para Masculino e F para Feminino:`).trim().toUpperCase()
+        }
+
+        pessoas++
+        if (sexo === "F") {
+            listaMulheres++
+        }
+
+        if (sexo === "M") {
+            sexo = "Masculino"
+        } else {
+            sexo = "Feminino"
+        }
+        //----------SALÁRIO----------//
+        let salario = Number(prompt(`Informe o salário:`))
+
+        while (isNaN(salario) || salario < 0) {
+            if (isNaN(salario)) {
+                alert(`Salário inválido! Digite somente números!`)
+            } else {
+                alert(`Salário inválido! Digite um valor maior que zero!`)
+            }
+            salario = Number(prompt(`Informe o salário:`))
+        }
+
+        listaSalario.push(salario)
+        somaSalario += salario
+
+        //---------- MENOR SALÁRIO ----------//
+        if (primeiro || salario < menorSalario) {
+            menorSalario = salario
+            idadeMenorSalario = idade
+            sexoMenorSalario = sexo
+            primeiro = false
+        }
+
+    }
+
+    // ---------- RESULTADOS ---------- //
+    let media = somaSalario / pessoas
+
+    listaIdade.sort((a, b) => a - b)
+    let menorIdade = listaIdade.shift()
+    let maiorIdade = listaIdade.pop()
+
+    
+    //SAÍDA
+    alert(`a) Média dos salários: R$ ${media.toFixed(2)};
+b) Maior idade: ${maiorIdade} e menor idade: ${menorIdade};
+c) Quantidade de mulheres: ${listaMulheres};
+d) Pessoa com menor salário: ${idadeMenorSalario} anos, sexo ${sexoMenorSalario}.`)
+</script>

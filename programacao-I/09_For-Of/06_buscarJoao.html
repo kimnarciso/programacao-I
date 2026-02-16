@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    //Considere a lista de nomes abaixo:
+    // let listaDeNomes = ["João Pedro", "Gabriel José", "Ulisses Joao", "Pedro Henrique", "João da Silva", "João Henrique", "Alisson João"];
+    //Identifique todos os nomes que contém "João" em qualquer parte do nome e separe-os em uma lista. Apresente a lista ao final do programa. Considere que poderão haver "Joãos" sem ~ (til).
+
+    //ENTRADA
+    let listaDeNomes = ["João Pedro", "Gabriel José", "Ulisses Joao", "Pedro Henrique", "João da Silva", "João Henrique", "Alisson João"];
+    let listaJoao = []
+    //PROCESSAMENTO
+    for (let nome of listaDeNomes) {
+        let nomeSemAcento = nome.replace("ã", "a").replace("Ã", "A");
+        if (nomeSemAcento.toUpperCase().includes("JOAO")) {
+            listaJoao.push(nome);
+        }
+    }
+    //SAÍDA
+    alert(listaJoao.join(", "));
+</script>

@@ -1,0 +1,59 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que receba a idade de 10 pessoas. Após, calcule e mostre:
+    - A quantidade de pessoas em cada faixa etária
+    - A percentagem de pessoas em cada faixa etária
+
+    Faixas etárias:
+    1ª: Até 15 anos
+    2ª: De 16 a 30 anos
+    3ª: De 31 a 45 anos
+    4ª: De 46 a 60 anos
+    5ª: Acima de 61 anos
+    */
+
+    //ENTRADA
+    let crianca = 0
+    let adolescente = 0
+    let jovem = 0
+    let adulto = 0
+    let idoso = 0
+    
+    //PROCESSAMENTO
+    for (let i = 0; i < 10; i++) {
+        let idade = Number(prompt(`Informe a ${i+1}ª idade:`))
+        while(isNaN(idade) || idade < 0 || idade % 1 != 0) {
+        if (isNaN(idade)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (idade < 0) {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        idade = Number(prompt(`Informe a ${i+1}ª idade:`))
+    }
+    if ( idade < 15) {
+        crianca++
+    } else if (idade > 16 && idade < 30) {
+        adolescente++
+    } else if (idade > 31 && idade < 45) {
+        jovem++
+    } else if (idade > 46 && idade < 60) {
+        adulto++
+    } else {
+        idoso++
+    }
+
+    }
+    //SAÍDA
+    alert (`A quantidade de idades nas faixas etárias são:
+    1ª: Até 15 anos: ${crianca}
+    2ª: De 16 a 30 anos: ${adolescente}
+    3ª: De 31 a 45 anos: ${jovem}
+    4ª: De 46 a 60 anos: ${adulto}
+    5ª: Acima de 61 anos: ${idoso}
+`)
+
+</script>

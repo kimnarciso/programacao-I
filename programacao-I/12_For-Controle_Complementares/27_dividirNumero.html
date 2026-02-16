@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que encontre o quinto número maior que 1000, cuja divisão por 11 tenha resto 5.
+    */
+
+    //ENTRADA
+    let contador = 0; 
+    let numero = 1000; 
+    let quintoNumero = 0;
+    
+    //PROCESSAMENTO
+    for (let i = 1000; ; i++) {  
+        if (i % 11 == 5) {
+            contador++;
+
+            if (contador == 5) {
+                quintoNumero = i;
+                break;
+            }
+        }
+    }
+    
+    //SAÍDA
+        alert(`O quinto número maior que 1000 cuja divisão por 11 tem resto 5 é: ${quintoNumero}`);
+
+</script>

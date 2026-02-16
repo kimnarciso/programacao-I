@@ -1,0 +1,123 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Pergunte ao usuário quantos filmes deseja cadastrar.
+    Considere que os gêneros dos filmes que serão cadastrados serão Comédia, Drama e Romance.
+    Para cada filme que o usuário inserir, pergunte o gênero do filme e o adicione na lista correspondente.
+    Apresente os gêneros e os seus respectivos filmes, que foram informados pelo usuário.
+    ***Não apresente listas que não tiveram filme cadastrado.
+    */
+
+    //ENTRADA
+    let filmes = prompt(`Quantos filmes você deseja cadastrar?`);
+    while (isNaN(filmes) || filmes % 1 !== 0 || filmes < 1) {
+        if(isNaN(filmes)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (filmes % 1 !== 0) {
+            alert(`Valor inválido! Você deve informar um número inteiro.`);
+        } else {
+            alert(`Valor inválido! Você deve informar um número inteiro maior ou igual a 1.`);
+        }
+        filmes = prompt(`Quantos filmes você deseja cadastrar?`);
+    }
+    let comedia = [];
+    let drama = [];
+    let romance = [];
+    let outro = []
+    let outroGenero = []
+    let generos = [
+    "Ação",
+    "Aventura",
+    "Terror",
+    "Suspense",
+    "Ficção científica",
+    "Fantasia",
+    "Musical",
+    "Policial",
+    "Mistério",
+    "Guerra",
+    "Histórico",
+    "Biografia",
+    "Faroeste",
+    "Documentário",
+    "Animação",
+    "Fantasia sombria",
+    "Pós-apocalíptico",
+    "Super-herói",
+    "Comédia romântica",
+    "Terror psicológico",
+    "Slasher",
+    "Família",
+    "Juvenil",
+    "Experimental",
+    "Religioso",
+    "Curta-metragem"
+];
+
+    let generoNovo = ""
+    let genero = ""
+    let nomeFilme = ""
+    //PROCESSAMENTO
+    for (let i = 0; i < filmes; i++) {
+        nomeFilme = prompt(`Informe o nome do filme:`).trim();
+        nomeFilme = nomeFilme.charAt(0).toUpperCase() + nomeFilme.slice(1).toLowerCase();
+
+        genero = prompt(`Informe o gênero do filme:`).trim().toLowerCase();
+        if (genero !== "comédia" && genero !== "comedia" && genero !== "drama" && genero !== "romance") {
+            generoNovo = prompt(`O gênero que informou não pertence ás opções disponíveis. Deseja cadastrar outro gênero?`).trim().toLowerCase();
+            while (generoNovo !== "sim" && generoNovo !== "não" && generoNovo !== "nao") {
+                alert(`Resposta inválida! Responda apenas com "sim" ou "não".`);
+                generoNovo = prompt(`O gênero que informou não pertence ás opções disponíveis. Deseja cadastrar outro gênero?`).trim().toLowerCase();
+            }
+            if (generoNovo === "sim") {
+                genero = prompt(`Informe o novo gênero:`).trim();
+                genero = genero.charAt(0).toUpperCase() + genero.slice(1).toLowerCase();
+                while (generos.includes(genero) === false) {
+                    alert(`Gênero inválido! Os gêneros disponíveis são: ${generos.join(", ")}.`);
+                    genero = genero.charAt(0).toUpperCase() + genero.slice(1).toLowerCase();
+                } 
+        if (generos.includes(genero) === true) {
+            outro.push(nomeFilme);
+            outroGenero.push(genero);
+        }
+           
+            
+        } else {
+            outro.push(nomeFilme);
+            outroGenero.push("O gênero não foi informado");
+        }
+    }
+    if (genero === "comédia" || genero === "comedia") {
+        comedia.push(nomeFilme.charAt(0).toUpperCase + genero.slice(1).toLowerCase()
+        ());
+    } else if (genero === "drama") {
+        drama.push(nomeFilme.charAt(0).toUpperCase + genero.slice(1).toLowerCase()
+        ());
+    } else if (genero === "romance") {
+        romance.push(nomeFilme.charAt(0).toUpperCase + genero.slice(1).toLowerCase()
+        ());
+    }
+}
+    
+    
+    //SAÍDA
+    if (comedia.length > 1) {
+        document.write (`Os filmes são ${comedia.join(", ")} e o gênero é Comédia.<br>`);
+    } if (comedia.length == 1) {
+        document.write (`O filme é ${comedia} e o gênero é Comédia.<br>`);
+    } if (drama.length > 1) {
+        document.write (`Os filmes são ${drama.join(", ")} e o gênero é Drama.<br>`);
+    } if (drama.length == 1) {
+        document.write (`O filme é ${drama} e o gênero é Drama.<br>`);
+    } if (romance.length > 1) {
+        document.write (`Os filmes são ${romance.join(", ")} e o gênero é Romance.<br>`);
+    } if (romance.length == 1) {
+        document.write (`O filme é ${romance} e o gênero é Romance.<br>`);
+    } if (outro.length > 1) {
+        document.write (`O gênero cadastrado para os filmes ${outro.join(", ")} é: ${outroGenero}.<br>`);
+    } if (outro.length == 1) {
+        document.write (`O gênero cadastrado para o filme ${outro} é: ${outroGenero}.`);
+    }
+    
+</script>

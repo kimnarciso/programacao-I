@@ -1,0 +1,85 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que pergunte ao espectador a sua idade e a sua avaliação sobre o filme, sendo que deverá informar R para REGULAR e B para BOM.
+    Apresente os seguintes dados:
+    - A média de idade das pessoas que responderam que o filme era REGULAR
+    - A média de idade das pessoas que responderam que o filme era BOM
+    - A média de idade de todas as pessoas que assistiram ao filme
+    - O percentual de pessoas que classificou o filme como REGULAR
+    - O percentual de pessoas que classificou o filme como BOM
+    */
+
+    //ENTRADA
+    let quantidade = Number(prompt("Quantas pessoas irão responder?"));
+
+    while (isNaN(quantidade) || quantidade <= 0 || quantidade % 1 !== 0) {
+        alert("Digite um número inteiro maior que 0.");
+        quantidade = Number(prompt("Quantas pessoas irão responder?"));
+    }
+
+    let idade = 0;
+    let resposta = "";
+
+    let somaRegular = 0;
+    let somaBom = 0;
+    let somaTotal = 0;
+
+    let quantidadeRegular = 0;
+    let quantidadeBom = 0;
+
+    //PROCESSAMENTO
+    for (let i = 0; i < quantidade; i++) {
+
+        idade = Number(prompt(`Informe a idade da ${i + 1}ª pessoa:`));
+        while (isNaN(idade) || idade <= 0 || idade % 1 !== 0) {
+            if (isNaN(idade)) {
+                alert("Valor inválido! Você deve informar um número.");
+            } else if (idade <= 0) {
+                alert("Valor inválido! Você deve informar um número maior que 0.");
+            } else {
+                alert("Valor inválido! Você deve informar um número inteiro.");
+            }
+            idade = Number(prompt(`Informe a idade da ${i + 1}ª pessoa:`));
+        }
+
+        resposta = prompt(`Como avaliou o filme? (R = Regular / B = Bom)`)
+            .trim().toUpperCase();
+
+        while (resposta !== "R" && resposta !== "B") {
+            alert("Informe somente R ou B!");
+            resposta = prompt(`Como avaliou o filme? (R = Regular / B = Bom)`)
+                .trim().toUpperCase();
+        }
+
+        somaTotal += idade;
+
+        if (resposta === "R") {
+            somaRegular += idade;
+            quantidadeRegular++;
+        } else {
+            somaBom += idade;
+            quantidadeBom++;
+        }
+    }
+
+    let mediaRegular = quantidadeRegular > 0 ? somaRegular / quantidadeRegular : 0;
+    let mediaBom = quantidadeBom > 0 ? somaBom / quantidadeBom : 0;
+    let mediaTotal = somaTotal / quantidade;
+
+    let percentualRegular = (quantidadeRegular / quantidade) * 100;
+    let percentualcBom = (quantidadeBom / quantidade) * 100;
+    //SAÍDA
+    alert(`
+RESULTADOS:
+
+- Média de idade de quem avaliou como REGULAR: ${mediaRegular.toFixed(2)} anos
+- Média de idade de quem avaliou como BOM: ${mediaBom.toFixed(2)} anos
+- Média de idade geral: ${mediaTotal.toFixed(2)} anos
+
+- Percentual que avaliou como REGULAR: ${percRegular.toFixed(0)}%
+- Percentual que avaliou como BOM: ${percBom.toFixed(0)}%
+`);
+
+</script>

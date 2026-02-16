@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Peça ao usuário para informar qual será o valor que deseja investir.
+    Desenvolva um programa que calcule e apresente o valor final previsto, ao longo de 3 anos, considerando cada tipo de investimento:
+    - Poupança: 1,5% ao mês
+    - Poupança plus: 2% ao mês
+    - Fundos de renda fixa: 4% ao mês
+    */
+
+    //ENTRADA
+    let valor = Number(prompt("Informe o valor que deseja investir:"));
+
+    while (isNaN(valor) || valor <= 0) {
+        alert("Digite um valor válido maior que zero!");
+        valor = Number(prompt("Informe o valor que deseja investir:"));
+    }
+
+    let poupanca = valor;
+    let poupancaPlus = valor;
+    let rendaFixa = valor;
+    
+    //PROCESSAMENTO
+    for (let i = 1; i <= 36; i++) {
+        poupanca += poupanca * 0.015;       
+        poupancaPlus += poupancaPlus * 0.02; 
+        rendaFixa += rendaFixa * 0.04;  
+    }
+    
+    //SAÍDA
+    alert(`
+RESULTADO FINAL APÓS 3 ANOS (com FOR controle):
+
+- Poupança: R$ ${poupanca.toFixed(2)}
+- Poupança Plus: R$ ${poupancaPlus.toFixed(2)}
+- Fundos de Renda Fixa: R$ ${rendaFixa.toFixed(2)}
+    `);
+
+</script>

@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que gere números entre 1000 e 1999, demonstrando os números que, divididos por 11, dão resto 5.
+    */
+
+    //ENTRADA
+
+    let resto5 = []
+
+    //PROCESSAMENTO
+    for (let numero = 1000; numero <= 1999; numero++) {
+        if (numero % 11 == 5) {
+            resto5.push(numero)
+        }
+    }
+    
+    //SAÍDA
+    alert(`Números entre 1000 e 1999 que divididos por 11 dão resto 5:
+${resto5.join(", ")}.`);
+
+</script>

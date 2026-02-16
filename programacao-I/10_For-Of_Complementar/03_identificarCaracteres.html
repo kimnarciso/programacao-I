@@ -1,0 +1,34 @@
+<meta charset="UTF-8" />
+<script>
+    //Problema: Identificar Caracteres
+    /*
+    Peça para o usuário informar uma palavra. Após, identifique a quantidade de vogais e de consoantes que existem na palavra informada pelo usuário.
+    Apresente as quantidades no final do programa.
+    */
+
+    //Entrada
+    let palavra = prompt (`Informe uma palavra:`).toLowerCase().trim()
+    while (!isNaN(palavra) || (palavra.indexOf(" ") > 0)) {
+        alert (`Informe uma palavra!`)
+        palavra = prompt (`Informe uma palavra:`).toLowerCase().trim()
+    }
+    let letras = Array.from(palavra);
+    let vogais = ["a", "e", "i", "o", "u"];
+    let vogal = [];
+    let consoante = [];
+    //Processamento
+    for (let letra of letras) {
+        if (vogais.includes(letra)) {
+            vogal.push(letra);
+        } else {
+            consoante.push(letra)
+        }
+    }
+   let quantidadeVogais = vogal.length
+   let quantidadeConsoantes = consoante.length
+    //Saída
+    alert (`As vogais da palavra são: ${vogal.join(", ")}.
+A quantidade de vogais são: ${quantidadeVogais}.
+As consoantes da palavra são: ${consoante.join(", ")}.
+A quantidade de consoante(s) são: ${quantidadeConsoantes}.`)
+</script>

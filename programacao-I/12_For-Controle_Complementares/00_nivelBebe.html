@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Peça para o usuário informar um número inteiro.
+    //Escreva todos os números na tela, até o número informado pelo usuário, colocando um número em cada linha e começando do número 1!
+
+    //Entrada
+    let numero = Number(prompt(`Informe um número inteiro:`));
+    while (isNaN(numero) || numero % 1 !== 0 || numero < 1) {
+        if(isNaN(numero)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (numero % 1 !== 0) {
+            alert(`Valor inválido! Você deve informar um número inteiro.`);
+        } else {
+            alert(`Valor inválido! Você deve informar um número inteiro maior ou igual a 1.`);
+        }
+        numero = Number(prompt(`Informe um número inteiro:`));
+    }
+    
+    //Processamento
+    let listaNumero = []
+    for (let i = 1; i <= numero; i++) {
+        listaNumero.push(i);
+    }
+    
+    //Saída
+    
+        document.write (`Os números de 1 até ${numero} são: <br> ${listaNumero.join('<br>')}`);
+</script>

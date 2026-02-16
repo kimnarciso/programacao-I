@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que leia a seguinte lista de números:
+    let listaDeNumeros = [4, 8, 12, 35, 78, 83, 5, 22, 49, 95];
+    Separe e apresente os números em duas listas, com os números abaixo de 50 e os números acima de 50.
+    Apresente também o percentual de números abaixo de 50 e o percentual de números acima de 50.
+    */
+
+    //ENTRADA
+    let listaDeNumeros = [4, 8, 12, 35, 78, 83, 5, 22, 49, 95];
+    let quantidade = listaDeNumeros.length
+    let menor50 = []
+    let maior50 = []
+    //PROCESSAMENTO
+    for (let i = 0; i < quantidade; i++) {
+        if (listaDeNumeros[i] < 50) {
+            menor50.push(listaDeNumeros[i]);
+            menor50.sort((a,b) => a - b)
+        } else if (listaDeNumeros[i] > 50) {
+            maior50.push(listaDeNumeros[i]);
+            maior50.sort((a,b) => a - b)
+        }
+    }
+
+    let percentualMenor = (menor50.length / quantidade) * 100;
+    let percentualMaior = (maior50.length / quantidade) * 100;
+
+    // SAÍDA
+    alert(
+        `Números menores que 50: ${menor50.join(", ")}
+Percentual: ${percentualMenor}%
+
+Números maiores que 50: ${maior50.join(", ")}
+Percentual: ${percentualMaior}%`
+    );
+
+</script>

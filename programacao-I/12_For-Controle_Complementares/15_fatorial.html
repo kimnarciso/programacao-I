@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que peça para o usuário informar um número inteiro positivo.
+    Após validar se este número fornecido é inteiro e positivo, calcule o fatorial deste número.
+    Apresente o resultado na tela.
+    */
+
+    //ENTRADA
+     let numero = Number(prompt("Informe um número inteiro positivo:"));
+
+    while (isNaN(numero) || numero < 1 || numero % 1 !== 0) {
+        if (isNaN(numero)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (numero < 1) {
+            alert("Valor inválido! Você deve informar um número maior ou igual a 1.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        numero = Number(prompt("Informe um número inteiro positivo:"));
+    }
+    
+    //PROCESSAMENTO
+    let fatorial = 1;
+
+    for (let i = 1; i <= numero; i++) {
+        fatorial *= i; 
+    }
+    
+    //SAÍDA
+    alert(`O fatorial de ${numero} é: ${fatorial}`);
+
+</script>

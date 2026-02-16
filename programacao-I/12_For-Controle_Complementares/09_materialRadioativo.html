@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que considere que o material radioativo perca metade da sua massa a cada 60 segundos.
+    Peça para o usuário qual a massa inicial e calcule quantas horas e minutos são necessários para que esse material tenha massa menor do que 1 grama.
+    Apresente, ao fim do programa, a massa inicial, massa final e o necessário para que atinja a massa determinada.
+    */
+
+    //ENTRADA
+    let massa = Number(prompt("Informe a massa inicial em gramas:"));
+    while (isNaN(massa) || massa <= 0) {
+        if (isNaN(massa)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        }
+        massa = Number(prompt("Informe a massa inicial em gramas:"));
+    }
+
+    let peso = massa;
+    let tempoSegundos = 0;
+    //PROCESSAMENTO
+    for (let i = 0; massa >= 1; i++) {
+        massa = massa / 2;
+        tempoSegundos += 60; // 1 meia-vida = 60s
+    }
+    let horas = Math.floor(tempoSegundos / 3600);
+    let minutos = Math.floor((tempoSegundos % 3600) / 60);
+    //SAÍDA
+    alert(`Massa inicial: ${peso} g
+Massa final: ${massa.toFixed(4)} g
+Tempo necessário: ${horas} hora(s) e ${minutos} minuto(s).`);
+
+</script>

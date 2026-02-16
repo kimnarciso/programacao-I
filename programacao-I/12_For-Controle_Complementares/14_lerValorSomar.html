@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que lê um valor n inteiro e positivo e que calcula a seguinte soma:  
+    S = 1 + 1/2 + 1/3 + 1/4 + ... + 1/n
+    O algoritmo deve escrever cada termo gerado e o valor final de S.
+    */
+
+    //ENTRADA
+    let numero = Number(prompt("Informe um valor inteiro e positivo:"));
+    while (isNaN(numero) || numero < 1 || numero % 1 !== 0) {
+        if (isNaN(numero)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (numero < 1) {
+            alert("Valor inválido! Você deve informar um número maior ou igual a 1.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        numero = Number(prompt("Informe um valor inteiro e positivo:"));
+    }
+
+    let soma = 0
+    let termos = ""
+    //PROCESSAMENTO
+    for (let i = 1; i <= numero; i++) {
+        soma += 1 / i;
+        termos += `1/${i} \n`; 
+    }
+    
+    //SAÍDA
+    alert(`Termos gerados:\n${termos}\nSoma final S = ${soma.toFixed(2)}`);
+
+</script>

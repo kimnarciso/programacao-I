@@ -1,0 +1,72 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Considere que uma loja utiliza o identificador V para transações à vista e P para transações parceladas.
+    Faça um programa que receba os valores de 10 transações realizadas, separando em listas as transações parceladas e transações à vista.
+    Apresente, ao fim do programa, os seguintes dados:
+    - Total de compras à vista
+    - Total de compras parceladas
+    - Total das compras efetuadas
+    - O valor da primeira prestação das compras a prazo, considerando que serão pagas em três vezes.
+    */
+
+    //ENTRADA
+    let tipo = "";
+    let valor = 0;
+
+    let vista = [];
+    let prazo = [];
+
+    
+    //PROCESSAMENTO
+    for (let i = 0; i < 10; i++) {
+
+        tipo = prompt(`Informe o tipo da ${i+1}ª transação (V para vista / P para prazo):`)
+               .trim().toUpperCase();
+
+        while (tipo !== "V" && tipo !== "P") {
+            alert("Digite somente V ou P!");
+            tipo = prompt(`Informe o tipo da ${i+1}ª transação (V para vista / P para prazo):`)
+                   .trim().toUpperCase();
+        }
+
+        valor = Number(prompt(`Informe o valor da ${i+1}ª transação:`));
+
+        while (isNaN(valor) || valor <= 0) {
+            alert("Valor inválido! Informe um número maior que zero.");
+            valor = Number(prompt(`Informe o valor da ${i+1}ª transação:`));
+        }
+
+        if (tipo === "V") {
+            vista.push(valor);
+        } else {
+            prazo.push(valor);
+        }
+    }
+
+    let totalVista = 0;
+    for (let v of vista) {
+        totalVista += v;
+    }
+
+    let totalPrazo = 0;
+    for (let p of prazo) {
+        totalPrazo += p;
+    }
+
+    let totalGeral = totalVista + totalPrazo;
+
+    let primeiraParcela = totalPrazo / 3;
+    
+    //SAÍDA
+    alert(`
+RESULTADOS:
+
+- Total das compras à vista: R$ ${totalVista.toFixed(2)}
+- Total das compras parceladas: R$ ${totalPrazo.toFixed(2)}
+- Total geral das compras: R$ ${totalGeral.toFixed(2)}
+- Valor da primeira prestação das compras a prazo: R$ ${primeiraParcela.toFixed(2)}
+    `);
+
+</script>

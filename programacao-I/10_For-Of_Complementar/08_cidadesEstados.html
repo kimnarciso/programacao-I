@@ -1,0 +1,47 @@
+<script>
+    //Problema: Cidades e Estados
+    /*
+    Considere a seguinte lista de Cidades:
+    let cidades = ["Porto Alegre", "Curitiba", "Florianópolis", "Joinville", "Blumenau", "Gramado", "Santa Maria", "Londrina", "Itajaí"];
+    Pergunte ao usuário a qual estado pertence cada uma das cidades e adicione em listas separadas, sendo uma lista para cada estado.
+    No final do programa apresente os estados com as suas respectivas cidades. Porém, ordene a apresentação das listas, apresentando de forma decrescente pela quantidade de cidades que o estado possui.
+    */
+
+    //Entrada
+    let cidades = ["Porto Alegre", "Curitiba", "Florianópolis", "Joinville", "Blumenau", "Gramado", "Santa Maria", "Londrina", "Itajaí"];
+    let sc = [];
+    let rs = [];
+    let pr = [];
+    //Processamento
+    for (let cidade of cidades) {
+        alert(`A cidade é: ${cidade}.`);
+        let sigla = prompt (`A qual estado pertence a cidade ${cidade}? Responda com as siglas.`).toUpperCase().trim()
+        while (sigla !== "SC" && sigla !== "PR" && sigla !== "RS") {
+            alert (`Estado incorreto. Tente novamente.`)
+            sigla = prompt (`A qual estado pertence a cidade ${cidade}? Responda com as siglas.`).toUpperCase().trim()
+        }
+        if (sigla === "SC") {
+            sc.push(cidade)
+        } else if (sigla === "RS") {
+            rs.push(cidade)
+        } else {
+            pr.push(cidade)
+        }
+    }
+
+    let estados = [
+        {sigla:"SC", cidades: sc },
+        {sigla:"RS", cidades: rs },
+        {sigla:"PR", cidades: pr }
+    ];
+
+    estados.sort((a, b) => b.cidades.length - a.cidades.length);
+
+    //Saída
+    let mensagem = `\n`;
+    for (let estado of estados) {
+    mensagem += `No estado de ${estado.sigla}, foram registradas ${estado.cidades.length} cidade(s): `;
+    mensagem += estado.cidades.join(", ") + ".\n";
+}
+alert(`${mensagem}`)
+</script>

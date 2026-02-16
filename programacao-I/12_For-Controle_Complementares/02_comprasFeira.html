@@ -1,0 +1,124 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Peça para o feirante informar a quantia de itens que foram vendidos de cada produto.
+    Considere que os itens que comercializa e os seus respectivos preços, são:
+    - Tomate: R$ 3,90 (Kg)
+    - Batata: R$ 3,40 (Kg)
+    - Batata-Doce: R$ 4,70 (Kg)
+    - Alface: R$ 1,50 (Und)
+    - Cebola: R$ 2,90 (Kg)
+    - Cebolinha: R$ 1,40 (Und)
+    - Beterraba: R$ 4,10 (Kg)
+
+    Após o usuário informar a quantia vendida para cada item, calcule e apresente o faturamento do feirante.
+    */
+
+    //ENTRADA
+    let tomate = Number(prompt(`Informe a quantia de Kg de tomate vendida:`));
+    while(isNaN(tomate) || tomate < 0) {
+        if(isNaN(tomate)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else{
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        } 
+        tomate = Number(prompt(`Informe a quantia de Kg de tomate vendida:`));
+    }
+    let batata = Number(prompt(`Informe a quantia de Kg de batata vendida:`));
+    while(isNaN(batata) || batata < 0) {
+        if(isNaN(batata)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else{
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        } 
+        batata = Number(prompt(`Informe a quantia de Kg de batata vendida:`));
+    }
+    let batataDoce = Number(prompt(`Informe a quantia de Kg de batata-doce vendida:`));
+    while(isNaN(batataDoce) || batataDoce < 0) {
+        if(isNaN(batataDoce)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else{
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        } 
+        batataDoce = Number(prompt(`Informe a quantia de Kg de batata-doce vendida:`));
+    }
+    let alface = Number(prompt(`Informe a quantia de unidades de alface vendida:`));
+    while(isNaN(alface) || alface < 0) {
+        if(isNaN(alface)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (alface < 0) {
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        }
+        alface = Number(prompt(`Informe a quantia de unidades de alface vendida:`));
+    }
+    let cebola = Number(prompt(`Informe a quantia de Kg de cebola vendida:`));
+    while(isNaN(cebola) || cebola < 0 ) {
+        if(isNaN(cebola)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (cebola < 0) {
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        } 
+        cebola = Number(prompt(`Informe a quantia de Kg de cebola vendida:`));
+    }
+    let cebolinha = Number(prompt(`Informe a quantia de unidades de cebolinha vendida:`));
+    while(isNaN(cebolinha) || cebolinha < 0) {
+        if(isNaN(cebolinha)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (cebolinha < 0) {
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        } 
+        cebolinha = Number(prompt(`Informe a quantia de unidades de cebolinha vendida:`));
+    }
+    let beterraba = Number(prompt(`Informe a quantia de Kg de beterraba vendida:`));
+    while(isNaN(beterraba) || beterraba < 0) {
+        if(isNaN(beterraba)) {
+            alert(`Valor inválido! Você deve informar um número.`);
+        } else if (beterraba < 0) {
+            alert(`Valor inválido! Você deve informar um número maior ou igual a 0.`);
+        }
+        beterraba = Number(prompt(`Informe a quantia de Kg de beterraba vendida:`));
+    }
+    //PROCESSAMENTO
+    let somaTomate = 0;
+    let somaBatata = 0;
+    let somaBatataDoce = 0;
+    let somaAlface = 0; 
+    let somaCebola = 0;
+    let somaCebolinha = 0;
+    let somaBeterraba = 0;  
+
+    for (let i = 0; i < tomate; i++) {
+        somaTomate += 3.9;
+    }
+    for (let i = 0; i < batata; i++) {
+        somaBatata += 3.4;
+    }
+    for (let i = 0; i < batataDoce; i++) {
+        somaBatataDoce += 4.7;
+    }
+    for (let i = 0; i < alface; i++) {
+        somaAlface += 1.5;
+    }
+    for (let i = 0; i < cebola; i++) {
+        somaCebola += 2.9;
+    }
+    for (let i = 0; i < cebolinha; i++) {
+        somaCebolinha += 1.4;
+    }
+    for (let i = 0; i < beterraba; i++) {
+        somaBeterraba += 4.1;
+    }
+
+   let soma = somaTomate + somaBatata + somaBatataDoce + somaAlface + somaCebola + somaCebolinha + somaBeterraba;
+    //SAÍDA
+    document.write(`O faturamento total do feirante foi: R$${soma.toFixed(2)}`);
+    document.write(`<br>Faturamento individual por produto:`);
+    document.write(`<br>Tomate: R$${somaTomate.toFixed(2)}`);
+    document.write(`<br>Batata: R$${somaBatata.toFixed(2)}`);
+    document.write(`<br>Batata-Doce: R$${somaBatataDoce.toFixed(2)}`);
+    document.write(`<br>Alface: R$${somaAlface.toFixed(2)}`);
+    document.write(`<br>Cebola: R$${somaCebola.toFixed(2)}`);
+    document.write(`<br>Cebolinha: R$${somaCebolinha.toFixed(2)}`);
+    document.write(`<br>Beterraba: R$${somaBeterraba.toFixed(2)}`);
+</script>

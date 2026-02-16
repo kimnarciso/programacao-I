@@ -1,0 +1,83 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: URNA ELETRÔNICA
+    Faça um programa que simule a urna eletrônica.
+    A tela a ser apresentada deverá ser da seguinte forma:
+    As opções são:
+    1. Candidato Joãozinho
+    2. Candidato Mariazinha
+    3. Nulo
+    4. Branco
+    Entre com o seu voto:
+
+    O programa deverá ler os votos dos eleitores e, quando for entrado o número 0, apresentar as seguintes
+    informações:
+    a) O número de votos de cada candidato;
+    b) A porcentagem de votos nulos;
+    c) A porcentagem de votos brancos;
+    d) O candidato vencedor.
+    */
+
+    //ENTRADA
+    let voto = 1
+
+    let joaozinho = 0
+    let mariazinha = 0
+    let nulo = 0
+    let branco = 0
+    //PROCESSAMENTO
+    while (voto > 0 ) {
+    voto = Number (prompt(`As opções são:
+1. Candidato Joãozinho
+2. Candidato Mariazinha
+3. Nulo
+4. Branco
+Entre com o seu voto:`))
+if (voto == 1) {
+    joaozinho++
+} else if (voto == 2) {
+    mariazinha++
+} else if (voto == 3) {
+    nulo++
+} else {
+    branco++
+}
+while (isNaN(voto) || voto > 4 || voto % 1 != 0 || voto < 0) {
+    if (isNaN(voto)) {
+        alert(`Voto inválido! Digite somente números!`)
+    } else if (voto > 4) {
+        alert(`Voto inválido! Escolha uma das opções disponíveis!`)
+    } else if (voto != 0) {
+        alert(`Voto inválido! Digite somente números inteiros!`)
+    } else {
+        alert(`Voto inválido! Digite um número positivo!`)
+    }
+    voto = Number (prompt(`As opções são:
+1. Candidato Joãozinho
+2. Candidato Mariazinha
+3. Nulo
+4. Branco
+Entre com o seu voto:`))
+}
+    }
+    let votoTotal = joaozinho + mariazinha
+    let porcentagemNulo = (nulo / votoTotal) * 100
+    let porcentagemBranco = (branco / votoTotal) * 100
+
+    let vencedor = ""
+    //SAÍDA
+    if (joaozinho > mariazinha) {
+        vencedor = "Joãozinho"
+    } else if (mariazinha > joaozinho) {
+        vencedor = "Mariazinha"
+    } else {
+        vencedor = "Empate"
+    }
+
+    alert (`a) O número de votos de cada candidato é: ${votoTotal}.
+b) A porcentagem de votos nulos é: ${porcentagemNulo.toFixed(0)}%.
+c) A porcentagem de votos brancos é: ${porcentagemBranco.toFixed(0)}%.
+d) O candidato vencedor é: ${vencedor}
+`)
+</script>

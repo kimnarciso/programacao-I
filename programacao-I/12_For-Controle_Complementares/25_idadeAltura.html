@@ -1,0 +1,66 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que receba a idade de 10 pessoas, e também o seu peso.
+    Calcule e apresente os seguintes dados:
+    - Média do peso das pessoas que possuem mais de 50 anos
+    - Média do peso das pessoas que possuem menos de 25 anos
+    - Média do peso de todas as pessoas
+    */
+
+    //ENTRADA
+    let idade = ""
+    let peso = ""
+    let peso50 = 0
+    let peso25 = 0
+    let pesoTotal = 0
+    let quantidade50 = 0
+    let quantidade25 = 0
+    
+    //PROCESSAMENTO
+    for (let i = 0; i < 10; i++) {
+        idade =  Number (prompt(`Informe a idade da ${i+1}ª pessoa:`))
+        while (isNaN(idade) || idade < 0 || idade % 1 != 0) {
+            if (isNaN(idade)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (idade < 0) {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        idade =  Number (prompt(`Informe a idade da ${i+1}ª pessoa:`))
+        }
+
+        peso = Number (prompt(`Informe o peso da ${i+1}ª pessoa:`))
+        while (isNaN(peso) || peso < 0) {
+            if (isNaN(peso)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (peso < 0) {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        }
+        peso = Number (prompt(`Informe o peso da ${i+1}ª pessoa:`))
+        }
+        pesoTotal = pesoTotal + peso
+
+        if (idade > 50) {
+            quantidade50++
+            peso50 = peso50 + peso
+        } else if (idade < 25) {
+            quantidade25++
+            peso25 = peso25 + peso
+        }
+    }
+    
+    let media50 = peso50 / quantidade50
+    let media25 = peso25 / quantidade25
+    let mediaTodas = pesoTotal / 10
+    //SAÍDA
+    alert (`As médias dos pesos são:
+    
+- Média do peso das pessoas que possuem mais de 50 anos: ${ media50.toFixed(2) } kg
+- Média do peso das pessoas que possuem menos de 25 anos: ${ media25.toFixed(2) } kg
+- Média do peso de todas as pessoas: ${mediaTodas.toFixed(2) } kg
+    `)
+
+</script>

@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Considere a seguinte sequência de números:
+    let fibonacci = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+    Pergunte ao usuário quantos números deseja adicionar na sequência de fibonacci.
+    Apresente a lista ao final do programa.
+    */
+
+    //ENTRADA
+    let fibonacci = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+
+    let quantidade = Number(prompt("Quantos números deseja adicionar à sequência de Fibonacci?"));
+    while (isNaN(quantidade) || quantidade < 1 || quantidade % 1 !== 0) {
+        if (isNaN(quantidade)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (quantidade < 1) {
+            alert("Valor inválido! Você deve informar um número maior ou igual a 1.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        quantidade = Number(prompt("Quantos números deseja adicionar à sequência de Fibonacci?"));
+    }
+    
+    //PROCESSAMENTO
+    for (let i = 0; i < quantidade; i++) {
+        let tamanho = fibonacci.length;
+        let proximo = fibonacci[tamanho - 1] + fibonacci[tamanho - 2];
+        fibonacci.push(proximo);
+    }
+    
+    //SAÍDA
+    alert(`Sequência final:\n${fibonacci.join(", ")}`);
+</script>

@@ -1,0 +1,51 @@
+<meta charset="UTF-8">
+<script>
+    //PROBLEMA
+    /*
+    Desenvolva um programa que pergunte ao usuário o limite inferior e o limite superior.
+    Imprima todos os números pares que estão neste intervalo e calcule a soma desses números.
+    Por exemplo:
+    - Limite inferior: 3
+    - Limite superior: 12
+    - Saída: 4, 6, 8, 10
+    - Soma: 28
+    */
+
+    //ENTRADA
+    let limiteInferior = Number(prompt(`Informe o limite inferior:`))
+    while(isNaN(limiteInferior) || limiteInferior < 0 || limiteInferior % 1 != 0) {
+        if (isNaN(limiteInferior)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (limiteInferior < 0) {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        limiteInferior = Number(prompt(`Informe o limite inferior:`))
+    }
+    let limiteSuperior = Number(prompt(`Informe o limite superior:`))
+    while(isNaN(limiteSuperior) || limiteSuperior < 0 || limiteSuperior % 1 != 0) {
+        if (isNaN(limiteSuperior)) {
+            alert("Valor inválido! Você deve informar um número.");
+        } else if (limiteSuperior < 0) {
+            alert("Valor inválido! Você deve informar um número maior que 0.");
+        } else {
+            alert("Valor inválido! Você deve informar um número inteiro.");
+        }
+        limiteSuperior = Number(prompt(`Informe o limite superior:`))
+    }
+    let soma = 0
+    let pares = []
+    //PROCESSAMENTO
+    for (let i = limiteInferior; i < limiteSuperior; i++) {
+        if (i % 2 == 0) {
+        pares.push(i)
+        soma += i
+        }
+    }
+    
+    //SAÍDA
+    alert (`Os números pares entre ${limiteInferior} e ${limiteSuperior} é: ${pares.join(", ")}
+Soma dos números pares é: ${soma}`)
+
+</script>
