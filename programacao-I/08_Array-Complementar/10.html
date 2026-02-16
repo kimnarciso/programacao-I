@@ -1,0 +1,62 @@
+<script>
+    /*
+    PROBLEMA: Controle de Estoque Interativo
+    Cenário: Você trabalha em uma loja de poções mágicas. Um cliente comprou o último "Elixir da Coragem" e você precisa removê-lo do sistema de inventário.
+
+    Array Inicial:
+    let inventarioMagico = ["Poção de Cura", "Elixir da Coragem", "Antídoto Universal", "Gás do Sono"];
+    Entrada do Usuário: O programa deve solicitar o nome do item que foi vendido e precisa ser removido.
+
+    Sua Tarefa:
+    Crie uma variável itemVendido para armazenar o nome do item informado.
+    Primeiro, encontre o índice (a posição) do itemVendido no array inventarioMagico.
+    Se o item for encontrado, use seu índice para removê-lo do array.
+    Exiba o inventário atualizado. Se o item não existir, exiba uma mensagem de erro.
+    Exemplo de Entrada do Usuário: Elixir da Coragem
+
+    Resultado esperado:
+    Item 'Elixir da Coragem' removido do estoque.
+    Inventário atual: Poção de Cura, Antídoto Universal, Gás do Sono
+    Exemplo de Entrada do Usuário: Capa da Invisibilidade
+
+    Resultado esperado:
+    Erro: Item 'Capa da Invisibilidade' não encontrado no estoque.
+    */
+
+    //ENTRADA
+    let inventarioMagico = ["Poção de Cura", "Elixir da Coragem", "Antídoto Universal", "Gás do Sono"];
+    let correcoes = {
+        "pocao de cura": "Poção de Cura",
+        "poçao de cura": "Poção de Cura",
+        "pocão de cura": "Poção de Cura",
+        "poção de cura": "Poção de Cura",
+        "elixir coragem": "Elixir da Coragem",
+        "elixir da coragem": "Elixir da Coragem",
+        "elixir de coragem": "Elixir da Coragem",
+        "antidoto universal": "Antídoto Universal",
+        "antídoto universal": "Antídoto Universal",
+        "gás do sono": "Gás do Sono",
+        "gas do sono": "Gás do Sono"
+    };
+    let itemVendido = prompt (`Informe o nome do item que foi vendido e precisa ser removido:`).toLowerCase().trim()
+    while (!isNaN(itemVendido)) {
+        alert(`Escreva o item da forma correta!`);
+        itemVendido = prompt (`Informe o nome do item que foi vendido e precisa ser removido:`).toLowerCase().trim()
+    }
+    
+    //PROCESSAMENTO
+    if (correcoes[itemVendido]) {
+        itemVendido = correcoes[itemVendido];
+    }
+    let inventario = inventarioMagico.map(item => item.toLowerCase())
+    let localizar = inventarioMagico.indexOf(`${itemVendido}`)
+    
+    //SAÍDA
+    if (localizar >= 0) {
+        let vendido = inventarioMagico.splice(localizar, 1)
+        alert(`Item '${itemVendido}' removido do estoque.
+Inventário atual: ${inventarioMagico.join(", ")}`);
+    } else {
+        alert(`Erro: Item '${itemVendido}' não encontrado no estoque.`);
+    }
+</script>

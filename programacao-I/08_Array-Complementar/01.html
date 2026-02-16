@@ -1,0 +1,43 @@
+<script>
+    /*
+    PROBLEMA: Organizando uma Fila de Atendimento
+    Simule uma fila de atendimento onde uma nova pessoa chega e entra no final da fila, e a pessoa que estava na primeira posição é atendida e sai da fila.
+
+    Instruções:
+
+    Declare um array filaDeAtendimento com os nomes: ["Ana", "Bruno", "Carla"].
+    Simule a chegada de um novo cliente. Use um método para adicionar o nome ao final do array, sendo que este nome será informado pelo usuário.
+    Considere que um cliente já foi atendido. Pergunte ao usuário qual foi o cliente atendido e use o método splice para removê-lo do array.
+    Exiba a lista de clientes na fila atualizada.
+    */
+
+    //ENTRADA
+    let filaDeAtendimento = ["Ana", "Bruno", "Carla"]
+    alert (`As pessoas na fila são: ${filaDeAtendimento.join(", ")}.`)
+    let nomeCliente = prompt (`Informe o nome do novo cliente:`).toLowerCase().trim();
+    while (!isNaN (nomeCliente)) {
+        alert (`Informe um nome válido!`);
+        nomeCliente = prompt (`Informe o nome do novo cliente:`).toLowerCase().trim();
+    }
+    let clienteAtendido = prompt (`Informe o cliente que já foi atendido:`).toLowerCase().trim();
+    while (clienteAtendido !== "ana" && clienteAtendido !== "bruno" && clienteAtendido !== "carla" && clienteAtendido !== nomeCliente) {
+        alert (`Informe um nome válido!`);
+        clienteAtendido = prompt (`Informe o cliente que já foi atendido:`).toLowerCase().trim();
+    }
+    //PROCESSAMENTO
+    let atendido = []
+    filaDeAtendimento.push(nomeCliente);
+    
+    if (clienteAtendido === "ana") {
+        atendido = filaDeAtendimento.splice(0, 1)
+    } else if (clienteAtendido === "bruno") {
+        atendido = filaDeAtendimento.splice(1, 1)
+    } else if (clienteAtendido === "carla") {
+        atendido = filaDeAtendimento.splice(2, 1)
+    } else {
+        atendido = filaDeAtendimento.splice(3, 1)
+    }
+    
+    //SAÍDA
+    alert (`A novo fila é: ${filaDeAtendimento.join(", ").toLowerCase()}.`)
+</script>

@@ -1,0 +1,58 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: ARRAY EM ORDEM DECRESCENTE
+    Peça para um usuário inserir três números. Crie um array com os três números, colocando-os em ordem decrescente. Para ordenar, NÃO use o método reverse();
+    Retorne os elementos do array, separando-os por hífen (n1 - n2 - n3).
+    */
+
+    //ENTRADA
+    let n1 = Number (prompt(`Informe o seu primeiro número:`));
+    while (isNaN(n1)) {
+        alert (`Insira um número!`);
+        n1 = Number (prompt(`Informe o seu primeiro número:`));
+    }
+    let n2 = Number (prompt (`Informe o seu segundo número:`));
+    while (isNaN(n2)) {
+        alert (`Insira um número!`);
+        n2 = Number (prompt(`Informe o seu segundo número:`));
+    }
+    let n3 = Number (prompt (`Informe o seu terceiro número:`));
+    while (isNaN(n3)) {
+        alert (`Insira um número!`);
+        n3 = Number (prompt(`Informe o seu terceiro número:`));
+    }
+    //PROCESSAMENTO
+    let ordem = [];
+
+    if (n1 > n2 && n1 > n3) {
+        if (n3 > n2) {
+            ordem = [n1, n3, n2];
+        } else if (n2 > n3) {
+            ordem = [n1, n2, n3];
+        } else {
+            ordem = [n1,n2,n3];
+        }
+    } else if (n2 > n1 && n2 > n3) {
+        if (n3 > n1) {
+            ordem = [n2, n3, n1];
+        } else if (n1 > n3) {
+            ordem = [n2, n1, n3];
+        } else {
+            ordem = [n2,n1,n3];
+        }
+    } else if (n3 > n2 && n3 > n1) {
+        if (n1 > n2) {
+            ordem = [n3, n1, n2];
+        } else if (n2 > n1) {
+            ordem = [n3, n2, n1];
+        } else {
+            ordem = [n3,n2,n1];
+        }
+    } else {
+        ordem = [n1, n2, n3];
+    }
+    //SAÍDA
+    alert (ordem.join (" - "));
+    
+</script>

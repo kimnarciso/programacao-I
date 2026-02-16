@@ -1,0 +1,87 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: LOJA DE VEÍCULOS
+    Crie os seguintes arrays:
+    let carrosSUV = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let carrosSedan = ["Civic", "Corolla", "Arizzo", "Fusion"];
+    let carrosHatch = ["308", "Focus", "i30"];
+    
+    Peça para o usuário informar mais três veículos para serem inseridos na lista. Para inserir na lista correta, peça também para o usuário identificar o tipo de veículo que deseja inserir, se é SUV, Sedan ou Hatch.
+
+    Apresente a lista final de cada tipo de veículo.
+    */
+
+    //ENTRADA
+    let carrosSUV = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let carrosSedan = ["Civic", "Corolla", "Arizzo", "Fusion"];
+    let carrosHatch = ["308", "Focus", "i30"];
+    alert (`Os tipo de veículos são: SUV, Sedan e Hatch.`);
+
+    let v1 = prompt (`Informe o primeiro carro que será inserido na lista:`);
+    while (!isNaN){
+        alert (`Insira um veículo válido!`);
+        v1 = prompt (`Informe o primeiro carro que será inserido na lista:`);
+    }
+    let tipo1 = prompt (`Informe o tipo do veículo:`).toLowerCase().trim();
+    while (tipo1 !== "suv" && tipo1 !== "sedan" && tipo1 !== "hatch"){
+        alert (`Insira um tipo de veículo válido!`);
+        tipo1 = prompt (`Informe o tipo do veículo:`).toLowerCase().trim();
+    }
+
+
+    let v2 = prompt (`Informe o segundo carro que será inserido na lista:`);
+    while (!isNaN){
+        alert (`Insira um veículo válido!`);
+        v2 = prompt (`Informe o segundo carro que será inserido na lista:`);
+    }
+    let tipo2 = prompt (`Informe o tipo do veículo:`).toLowerCase().trim();
+    while (tipo2 !== "suv" && tipo2 !== "sedan" && tipo2 !== "hatch"){
+        alert (`Insira um tipo de veículo válido!`);
+        tipo2 = prompt (`Informe o tipo do veículo:`).toLowerCase().trim();
+    }
+
+    let v3 = prompt (`Informe o terceiro carro que será inserido na lista:`);
+    while (!isNaN){
+        alert (`Insira um veículo válido!`);
+        v3 = prompt (`Informe o terceiro carro que será inserido na lista:`);
+    }
+    let tipo3 = prompt (`Informe o tipo do veículo:`).toLowerCase().trim();
+    while (tipo3 !== "suv" && tipo3 !== "sedan" && tipo3 !== "hatch"){
+        alert (`Insira um tipo de veículo válido!`);
+        tipo3 = prompt (`Informe o tipo do veículo:`).toLowerCase().trim();
+    }
+    
+    
+
+    
+    //PROCESSAMENTO
+    if (tipo1 === "hatch"){
+        carrosHatch.unshift(v1)
+    } else if (tipo1 === "sedan") {
+        carrosSedan.unshift(v1)
+    } else {
+        carrosSUV.unshift(v1)
+    }
+
+    if (tipo2 === "hatch"){
+        carrosHatch.unshift(v2)
+    } else if (tipo2 === "sedan") {
+        carrosSedan.unshift(v2)
+    } else {
+        carrosSUV.unshift(v2)
+    }
+
+    if (tipo3 === "hatch"){
+        carrosHatch.unshift(v3)
+    } else if (tipo3 === "sedan") {
+        carrosSedan.unshift(v3)
+    } else {
+        carrosSUV.unshift(v3)
+    }
+    //SAÍDA
+    alert (`SUV: ${carrosSUV.join(", ").toLowerCase()}.
+Sedan: ${carrosSedan.join(", ").toLowerCase()}.
+Hatch: ${carrosHatch.join(", ").toLowerCase()}.
+    `)
+</script>

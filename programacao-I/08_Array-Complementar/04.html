@@ -1,0 +1,58 @@
+<script>
+    /*
+    PROBLEMA: Ingrediente Secreto
+    Você está criando uma receita e precisa verificar duas coisas: se um "Ingrediente Secreto" está na sua lista de ingredientes e, se estiver, qual a sua posição para que você possa adicioná-lo no momento certo.
+
+    Tarefa:
+    Comece com o array: let ingredientes = ["Farinha", "Açúcar", "Ovos", "Sal", "Chocolate"];
+    Pergunte para o usuário se existe algum ingrediente secreto e qual é o ingrediente secreto.
+    Crie uma variável chamada posicaoIngrediente que identifique e armazene a posição) do Ingrediente Secreto no array, segundo o ingrediente informado pelo usuário (caso exista).
+    Resultado esperado:
+
+    A receita contém o Ingrediente Secreto? SIM/NÃO
+    Posição do Ingrediente Secreto: POSIÇÃO DO INGREDIENTE NO ARRAY
+
+    */
+
+    //ENTRADA
+    let ingredientes = ["Farinha", "Açúcar", "Ovos", "Sal", "Chocolate"];
+    let correcoes = {
+        "acucar": "Açúcar",
+        "acúcar": "Açúcar",
+        "açucar": "Açúcar",
+        "açúcar": "Açúcar",
+        "farinha": "Farinha",
+        "ovos": "Ovos",
+        "sal": "Sal",
+        "chocolate": "Chocolate"
+    };
+    let ingredientesM = ingredientes.map(item => item.toLowerCase())
+    let ingredienteSecreto = prompt (`Existe algum ingrediente secreto?`).toUpperCase().trim();
+    while (ingredienteSecreto !== "SIM" && ingredienteSecreto !== "NÃO" && ingredienteSecreto !== "NAO") {
+        alert (`Responda com sim ou não!`);
+        ingredienteSecreto = prompt (`Existe algum ingrediente secreto?`).toUpperCase().trim();
+    }
+
+    //PROCESSAMENTO
+    
+    // SAÍDA
+    if (ingredienteSecreto === "SIM") {
+        let qualIngredienteSecreto = prompt (`Qual é o ingrediente secreto?`).toLowerCase().trim();
+        while (!isNaN (qualIngredienteSecreto) ) {
+            alert (`Insira um ingrediente válido!`);
+            qualIngredienteSecreto = prompt (`Qual é o ingrediente secreto?`).toLowerCase().trim();
+    }
+    if (correcoes[qualIngredienteSecreto]) {
+        qualIngredienteSecreto = correcoes[qualIngredienteSecreto];
+    }
+        let posicaoIngrediente = ingredientes.indexOf(qualIngredienteSecreto)
+        if (posicaoIngrediente >= 0) {
+            alert(`A receita contém o Ingrediente Secreto? SIM
+Posição do Ingrediente Secreto: ${posicaoIngrediente +1}`);
+        } else {
+            alert (`Esse ingrediente não existe na receita.`)
+        }
+    } else {
+        alert(`A receita contém o Ingrediente Secreto? NÃO`);
+    }
+</script>

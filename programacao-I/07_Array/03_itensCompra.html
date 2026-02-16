@@ -1,0 +1,51 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: ITENS DA LISTA DE COMPRAS
+    Peça para o usuário inserir 3 frutas para a lista de compras. (Use 3 vezes o prompt).
+    Peça também para o usuário inserir 3 bebidas para a lista de compras (Use outras 3 vezes o prompt).
+    Crie um array para cada tipo de item e, ao fim, apresente os itens da sequinte forma:
+    As frutas a serem compradas são: fruta1, fruta2, fruta3.
+    As bebidas a serem compradas são: bebida1, bebida2, bebida3.
+    A lista completa de compras é: fruta1, fruta2, fruta3, bebida1, bebida2, bebida3.
+    */
+
+    //ENTRADA
+    let fruta1 = prompt (`Informe a sua primeira fruta:`).toLowerCase().trim()
+    while (!isNaN (fruta1)) {
+        alert (`Informe uma fruta!`);
+        fruta1 = prompt (`Informe a sua primeira fruta:`).toLowerCase().trim();
+    }
+    let fruta2 = prompt (`Informe a sua segunda fruta:`).toLowerCase().trim();
+    while (!isNaN (fruta2)) {
+        alert (`Informe uma fruta!`);
+        fruta2 = prompt (`Informe a sua segunda fruta:`).toLowerCase().trim();
+    }
+    let fruta3 = prompt (`Informe a sua terceira fruta:`).toLowerCase().trim();
+    while (!isNaN (fruta3)) {
+        alert (`Informe uma fruta!`);
+        fruta3 = prompt (`Informe a sua terceira fruta:`).toLowerCase().trim();
+    }
+
+    let bebida1 = prompt (`Informe a sua primeira bebida:`).toLowerCase().trim();
+    while (!isNaN (bebida1)) {
+        alert (`Informe uma bebida!`);
+        bebida1 = prompt (`Informe a sua primeira bebida:`).toLowerCase().trim();
+    }let bebida2 = prompt (`Informe a sua segunda bebida:`).toLowerCase().trim();
+    while (!isNaN (bebida2)) {
+        alert (`Informe uma bebida!`);
+        bebida2 = prompt (`Informe a sua segunda bebida:`).toLowerCase().trim();
+    }let bebida3 = prompt (`Informe a sua terceira bebida:`).toLowerCase().trim();
+    while (!isNaN (bebida3)) {
+        alert (`Informe uma bebida!`);
+        bebida3 = prompt (`Informe a sua terceira bebida:`).toLowerCase().trim();
+    }
+    //PROCESSAMENTO
+    let listaFruta = [fruta1, fruta2, fruta3];
+    let listaBebida = [bebida1, bebida2, bebida3];
+
+    //SAÍDA
+    alert (`As frutas a serem compradas são: ${listaFruta.join(", ")}.
+As bebidas a serem compradas são: ${listaBebida.join(", ")}.
+A lista completa de compras é: ${listaFruta.concat(listaBebida).join (", ")}.`)
+</script>
