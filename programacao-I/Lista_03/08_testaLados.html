@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: TESTA LADOS DE TRIÂNGULO
+    Receba os três lados de um triângulo. Informe se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno. Dica: pesquise sobre a regra para saber se os lados formam um triângulo e também sobre os tipos de triângulos.
+    */
+
+    //ENTRADA
+    const trianguloA = Number(prompt(`Informe o lado esquerdo do triângulo:`));
+    const trianguloB = Number(prompt(`Informe o lado direito do triângulo:`));
+    const trianguloC = Number(prompt(`Informe a base do triângulo:`));
+    //PROCESSAMENTO
+    const trianguloAb = trianguloA + trianguloB;
+    const trianguloAc = trianguloA + trianguloC;
+    const trianguloBc = trianguloB + trianguloC;
+    //SAÍDA
+    if ((trianguloAb > trianguloC && trianguloAc > trianguloB && trianguloBc > trianguloA) && (trianguloA == trianguloB && trianguloA == trianguloC && trianguloC == trianguloB)) {
+        alert(`É um triângulo e ele é um triângulo equilátero`);
+    } else if ((trianguloAb > trianguloC && trianguloAc > trianguloB && trianguloBc > trianguloA) && (trianguloA == trianguloB || trianguloA == trianguloC || trianguloB == trianguloC)) {
+        alert(`É um triângulo e ele é um triângulo isósceles`);
+    }else if ((trianguloAb > trianguloC && trianguloAc > trianguloB && trianguloBc > trianguloA) && (trianguloA != trianguloB && trianguloA != trianguloC && trianguloB != trianguloC)) {
+        alert(`É um triângulo e ele é um triângulo escaleno`);
+    } else {
+        alert(`Não é um triângulo`);
+    }
+</script>

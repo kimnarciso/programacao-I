@@ -1,0 +1,47 @@
+<script>
+    /*
+    PROBLEMA: DESCONTO COMBUSTÍVEL
+    Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+    Álcool:
+    - até 20 litros, desconto de 3% por litro
+    - acima de 20 litros, desconto de 5% por litro
+
+    Gasolina:
+    - até 20 litros, desconto de 4% por litro
+    - acima de 20 litros, desconto de 6% por litro
+    
+    Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 6,50 o preço do litro do álcool é R$ 6,10.
+    */
+
+    //ENTRADA
+
+    let litros = Number(prompt(`Informe quantos litros foram comprados:`));
+    let combustivel = prompt(`Informe o tipo de combustível (A-álcool e G-gasolina):`).toUpperCase().trim();
+    while (combustivel !== "A" && combustivel !== "G") {
+        alert(`Valor inválido! Responda com A ou G.`);
+        combustivel = prompt(`Informe o tipo de combustível (A-álcool e G-gasolina):`).toUpperCase().trim();
+    }
+
+    //PROCESSAMENTO
+
+    const precoAlcool = (litros * 6.10);
+    const precoGasolina = (litros * 6.50);
+
+    const desconto3 = precoAlcool - ((precoAlcool*3) / 100);
+    const desconto5 = precoAlcool - ((precoAlcool*5) / 100);
+    const desconto4 = precoGasolina - ((precoGasolina*4) / 100);
+    const desconto6 = precoGasolina - ((precoGasolina*6) / 100);
+
+    if(combustivel == "A" && litros <= 20) {
+        alert(`O preço a ser pago pelo cliente é de R$${desconto3.toFixed(2)}!`);
+    } else if(combustivel == "A" && litros > 20){
+        alert(`O preço a ser pago pelo cliente é de R$${desconto5.toFixed(2)}!`);
+    } else if(combustivel == "G" && litros <= 20){
+        alert(`O preço a ser pago pelo cliente é de R$${desconto4.toFixed(2)}!`);
+    } else if(combustivel == "G" && litros > 20){
+        alert(`O preço a ser pago pelo cliente é de R$${desconto6.toFixed(2)}!`);
+    } else {
+        alert(`Valor inválido!`);
+    }
+
+</script>

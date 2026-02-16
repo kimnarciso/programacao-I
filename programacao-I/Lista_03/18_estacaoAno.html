@@ -1,0 +1,39 @@
+<script>
+    /*
+    PROBLEMA: ESTAÇÃO DO ANO
+    Perguntar o hemisfério e o mês atual, e informar a estação.
+    */
+
+    // ENTRADA
+    const mes = prompt(`Informe o mês atual?`).toUpperCase().trim();
+    const hemisferio = prompt(`Informe o hemisfério em que você está (N-norte ou S-sul)?`).toUpperCase().trim();
+
+    // PROCESSAMENTO
+    if (hemisferio == "S") {
+        if (mes == "JANEIRO" || mes == "FEVEREIRO" || mes == "MARÇO") {
+            alert("É verão!");
+        } else if (mes == "ABRIL" || mes == "MAIO" || mes == "JUNHO") {
+            alert("É outono!");
+        } else if (mes == "JULHO" || mes == "AGOSTO" || mes == "SETEMBRO") {
+            alert("É inverno!");
+        } else if (mes == "OUTUBRO" || mes == "NOVEMBRO" || mes == "DEZEMBRO") {
+            alert("É primavera!");
+        } else {
+            alert("Mês inválido.");
+        }
+    } else if (hemisferio == "N") {
+        if (mes == "JANEIRO" || mes == "FEVEREIRO" || mes == "MARÇO") {
+            alert("É inverno!");
+        } else if (mes == "ABRIL" || mes == "MAIO" || mes == "JUNHO") {
+            alert("É primavera!");
+        } else if (mes == "JULHO" || mes == "AGOSTO" || mes == "SETEMBRO") {
+            alert("É verão!");
+        } else if (mes == "OUTUBRO" || mes == "NOVEMBRO" || mes == "DEZEMBRO") {
+            alert("É outono!");
+        } else {
+            alert("Mês inválido.");
+        }
+    } else {
+        alert("Hemisfério inválido.");
+        }
+</script>

@@ -1,0 +1,75 @@
+<script>
+    /*
+    PROBLEMA: INVESTIGAÇÃO CRIMINAL
+    Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+    - "Telefonou para a vítima?"
+    - "Esteve no local do crime?"
+    - "Mora perto da vítima?"
+    - "Devia para a vítima?"
+    - "Já trabalhou com a vítima?"
+    O script deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
+    */
+
+    //ENTRADA
+    alert(`Responda as perguntas (S-sim e N-não)`);
+    let telefone = prompt(`Telefonou para a vítima?`).toUpperCase().trim();
+    while (telefone !== "S" && telefone !== "N") {
+        alert(`Valor inválido! Responda com S ou N.`);
+        telefone = prompt("Telefonou para a vítima?").toUpperCase().trim();
+    }
+    let lugar = prompt(`Esteve no local do crime?`).toUpperCase().trim();
+    while (lugar !== "S" && lugar !== "N") {
+        alert(`Valor inválido! Responda com S ou N.`);
+        lugar= prompt(`Esteve no local do crime?`).toUpperCase().trim();
+    }
+    let mora = prompt(`Mora perto da vítima?`).toUpperCase().trim();
+    while (mora !== "S" && mora !== "N") {
+        alert(`Valor inválido! Responda com S ou N.`);
+        mora = prompt(`Mora perto da vítima?`).toUpperCase().trim();
+    }
+    let devia = prompt(`Devia para a vítima?`).toUpperCase().trim();
+    while (devia !== "S" && devia !== "N") {
+        alert(`Valor inválido! Responda com S ou N.`);
+        devia = prompt(`Devia para a vítima?`).toUpperCase().trim();
+    }
+    let trabalho = prompt(`Já trabalhou com a vítima?`).toUpperCase().trim();
+    while (trabalho !== "S" && trabalho !== "N") {
+        alert(`Valor inválido! Responda com S ou N.`);
+        trabalho = prompt(`Já trabalhou com a vítima?`).toUpperCase().trim();
+    }
+    let respostas = 0;
+
+    //PROCESSAMENTO
+    if (telefone === "S"){
+        respostas++;
+    }
+      if (lugar === "S"){
+        respostas++;
+    }
+    if (mora === "S" ){
+        respostas++;
+    }
+    if (devia === "S"){
+        respostas++;
+    } 
+    if (trabalho === "S"){
+        respostas++;
+    }
+    let classificacao = "Inocente";
+
+    if (respostas == 2) {
+        classificacao = "Suspeita";
+    }
+
+    if (respostas == 3 || respostas == 4) {
+        classificacao = "Cúmplice";
+    }
+
+    if (respostas == 5) {
+        classificacao = "Assassino";
+    }
+
+    alert(`Classificação: ${classificacao}`);
+    //SAÍDA
+
+</script>

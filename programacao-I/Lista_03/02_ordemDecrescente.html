@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: ORDEM DECRESCENTE
+    Faça um script que leia três números e mostre-os em ordem decrescente.
+    */
+
+    //ENTRADA
+    const numero1 = Number (prompt(`Insira o seu número:`));
+    const numero2 = Number ( prompt(`Insira o seu número:`));
+    const numero3 = Number (prompt(`Insira o seu número:`));
+    //PROCESSAMENTO
+    if (numero1 > numero2 && numero2 > numero3) {
+        alert(`A sua ordem decrescente é ${numero1}, ${numero2} e ${numero3}`);
+    } else if (numero1 > numero3 && numero3 > numero2){
+        alert (`A sua ordem decrescente é ${numero1}, ${numero3} e ${numero2}`);
+    } else if (numero2 > numero1 && numero1 > numero3){
+        alert (`A sua ordem decrescente é ${numero2}, ${numero1} e ${numero3}`);
+    } else if  (numero2 > numero3 && numero3 > numero1){
+        alert (`A sua ordem decrescente é ${numero2}, ${numero3} e ${numero1}`);
+    } else if (numero3 > numero2 && numero2 > numero1){
+        alert(`A sua ordem decrescente é ${numero3}, ${numero2} e ${numero1}`);
+    } else if (numero3 > numero1 && numero1 < numero2) {
+        alert (`A sua ordem decrescente é ${numero3}, ${numero1} e ${numero2}`);
+    } else if ((numero1 == numero2 && numero2 < numero3) || (numero2 == numero1 && numero1 < numero3)){
+        alert(`A sua ordem decrescente é ${numero3}, ${numero2} e ${numero1}`);
+    } else if ((numero3 == numero2 && numero2 < numero1) || (numero2 == numero3 && numero2 < numero1)){
+        alert(`A sua ordem decrescente é ${numero1}, ${numero2} e ${numero3}`);
+    } else if ((numero1 == numero3 && numero1 < numero2) || (numero3 == numero1 && numero1 < numero2)){
+        alert(`A sua ordem decrescente é ${numero2}, ${numero3} e ${numero1}`);
+    } else if (numero1 == numero2 && numero2 == numero3){
+        alert(`Os três números são iguais`);
+    } else {
+        alert (`Valor inválido!`)
+    }
+    
+</script>

@@ -1,0 +1,116 @@
+<script>
+    /*
+    PROBLEMA: CAIXA ELETRÔNICO
+    Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
+
+    Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+    Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+    */
+
+    //ENTRADA
+    const saque = Number(prompt(`Informe o valor do saque: `));
+    
+    //PROCESSAMENTO
+
+if (saque >= 10 && saque <= 600) {
+    let notas100 = Math.floor(saque / 100);
+    let notas50 = Math.floor((saque % 100) / 50);
+    let notas10 = Math.floor((saque % 50) / 10);
+    let notas5 = Math.floor((saque % 10) / 5);
+    let nota1 = saque % 5;
+
+    let mensagem = `Para sacar a quantia de ${saque}, o script fornece `;
+
+    let totalNotas = 0;
+    if (notas100 > 0) totalNotas++;
+    if (notas50 > 0) totalNotas++;
+    if (notas10 > 0) totalNotas++;
+    if (notas5 > 0) totalNotas++;
+    if (nota1 > 0) totalNotas++;
+
+    if (notas100 > 0) {
+        totalNotas = totalNotas - 1;
+        if (notas100 == 1) {
+            mensagem = mensagem + `uma nota de 100`;
+        } else if (notas100 == 2) {
+            mensagem = mensagem + `duas notas de 100`;
+        } else if (notas100 == 3) {
+            mensagem = mensagem + `três notas de 100`;
+        } else if (notas100 == 4) {
+            mensagem = mensagem + `quatro notas de 100`;
+        } else if (notas100 == 5) {
+            mensagem = mensagem + `cinco notas de 100`;
+        } else if (notas100 == 6){
+            mensagem = mensagem + `seis notas de 100`;
+        }
+
+        if (totalNotas == 1) {
+            mensagem = mensagem + ` e `;
+        } else if (totalNotas >= 2) {
+            mensagem = mensagem + `, `;
+        }
+    }
+
+    if (notas50 > 0) {
+        totalNotas = totalNotas - 1;
+        if (notas50 == 1) {
+            mensagem = mensagem + `uma nota de 50`;
+        }
+
+        if (totalNotas == 1) {
+            mensagem = mensagem + ` e `;
+        } else if (totalNotas >= 2) {
+            mensagem = mensagem + `, `;
+        }
+    }
+
+    if (notas10 > 0) {
+        totalNotas = totalNotas - 1;
+        if (notas10 == 1) {
+            mensagem = mensagem + `uma nota de 10`;
+        } else if (notas10 == 2) {
+            mensagem = mensagem + `duas notas de 10`;
+        } else if (notas10 == 3) {
+            mensagem = mensagem + `três notas de 10`;
+        } else if (notas10 == 4) {
+            mensagem = mensagem + `quatro notas de 10`;
+        }
+
+        if (totalNotas == 1) {
+            mensagem = mensagem + ` e `;
+        } else if (totalNotas >= 2) {
+            mensagem = mensagem + `, `;
+        }
+    }
+
+    if (notas5 > 0) {
+        totalNotas = totalNotas - 1;
+        if (notas5 == 1) {
+            mensagem = mensagem + `uma nota de 5`;
+        }
+
+        if (totalNotas == 1) {
+            mensagem = mensagem + ` e `;
+        } 
+    }
+
+    if (nota1 > 0) {
+        if (nota1 == 1) {
+            mensagem = mensagem + `uma nota de 1`;
+        } else if (nota1 == 2) {
+            mensagem = mensagem + `duas notas de 1`;
+        } else if (nota1 == 3) {
+            mensagem = mensagem + `três notas de 1`;
+        } else if (nota1 == 4) {
+            mensagem = mensagem + `quatro notas de 1`;
+        } 
+    }
+
+    alert(mensagem);
+} else {
+    alert(`Valor inválido! Só é permitido sacar um valor entre R$10,00 e R$600,00.`);
+}
+
+    //SAÍDA
+
+</script>
